@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HaathKaKaam — My Creations</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Kalam:wght@400;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+<style>
+:root{
+  --display:'Luckiest Guy', cursive;
+  --hand:'Kalam', cursive;
+  --body:'Poppins', sans-serif;
+
+  --rickshaw-red:#D62828;
+  --cobalt:#1B4B8F;
+  --mango:#FFB100;
+  --parrot:#0F8B4D;
+  --hotpink:#E8256E;
+  --cream:#FFF3DC;
+  --ink:#1A1006;
+  --plate-yellow:#F5C400;
+  --plum:#6B3F69;
+  --clay:#B5652D;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:var(--body);color:var(--ink);
+  background:
+    radial-gradient(circle, rgba(26,16,6,0.06) 1.6px, transparent 1.6px) 0 0/22px 22px,
+    var(--cream);
+}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;}
+
+/* jhalar fringe */
+.jhalar{display:flex;height:22px;overflow:hidden;}
+.jhalar span{flex:0 0 26px;height:26px;border-radius:0 0 50% 50%;margin:0 1px;transform:translateY(-14px);}
+.jhalar span:nth-child(6n+1){background:var(--rickshaw-red);}
+.jhalar span:nth-child(6n+2){background:var(--mango);}
+.jhalar span:nth-child(6n+3){background:var(--cobalt);}
+.jhalar span:nth-child(6n+4){background:var(--parrot);}
+.jhalar span:nth-child(6n+5){background:var(--hotpink);}
+.jhalar span:nth-child(6n){background:var(--ink);}
+
+/* shell */
+.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh;}
+
+/* sidebar */
+.sidebar{
+  background:var(--ink);color:#fff7e6;padding:0 0 20px;
+  position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  border-right:6px solid var(--mango);
+}
+.sidebar-logo{font-family:var(--display);font-size:23px;color:var(--mango);text-align:center;padding:22px 10px 14px;letter-spacing:0.5px;text-shadow:2px 2px 0 var(--rickshaw-red);}
+.sidebar-logo span{display:block;font-family:var(--body);font-size:9px;font-weight:700;letter-spacing:2px;color:#c9b896;margin-top:6px;text-transform:uppercase;}
+.nav-group{list-style:none;margin:0;padding:0 14px;flex:1;}
+.nav-item{margin-bottom:5px;}
+.nav-link{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:600;color:#e9d9be;border:2px solid transparent;transition:all .2s ease;}
+.nav-link .ico{font-size:16px;width:20px;text-align:center;}
+.nav-link:hover{border-color:var(--mango);color:#fff;background:rgba(245,196,0,0.08);}
+.nav-link.active{background:var(--mango);color:var(--ink);border-color:var(--ink);box-shadow:3px 3px 0 var(--rickshaw-red);transform:translate(-2px,-2px);}
+.sidebar-foot{margin:16px 14px 0;padding:14px 10px;text-align:center;font-family:var(--hand);font-size:12px;color:var(--mango);border-top:2px dashed #4a3520;}
+
+/* main */
+.main{padding:0 30px 80px;max-width:1300px;}
+.topbar-wrap{margin:0 -30px 0;}
+.topbar{background:var(--cobalt);color:#fff;padding:16px 34px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:6px solid var(--ink);}
+.greeting h1{font-family:var(--hand);font-weight:700;font-size:21px;margin:0;color:#fff;}
+.greeting p{margin:2px 0 0;font-size:12px;color:#c7d7ef;}
+.topbar-tools{display:flex;align-items:center;gap:16px;}
+.search-pill{display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border-radius:8px;padding:9px 15px;font-size:12.5px;font-weight:600;width:200px;border:2px solid var(--ink);}
+.icon-btn{position:relative;width:36px;height:36px;border-radius:8px;background:#fff;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .2s ease;}
+.icon-btn:hover{transform:translateY(-3px) rotate(-4deg);background:var(--mango);}
+.icon-btn .dot{position:absolute;top:-4px;right:-4px;width:10px;height:10px;border-radius:50%;background:var(--rickshaw-red);border:2px solid #fff;}
+.seller-chip{display:flex;align-items:center;gap:10px;}
+.avatar{width:36px;height:36px;border-radius:8px;background:var(--hotpink);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:15px;}
+.plate{font-family:var(--body);font-weight:800;font-size:10px;letter-spacing:0.5px;background:var(--plate-yellow);color:var(--ink);padding:3px 8px;border-radius:4px;border:1.5px solid var(--ink);display:inline-block;margin-top:3px;}
+
+/* hero */
+.hero{
+  position:relative;margin-top:24px;border-radius:20px;
+  background:var(--plum);color:#fff;padding:38px 380px 38px 40px;
+  border:5px solid var(--ink);box-shadow:9px 9px 0 var(--ink);overflow:hidden;
+}
+.hero-eyebrow{font-family:var(--body);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:var(--mango);color:var(--ink);display:inline-block;padding:5px 12px;border-radius:6px;margin-bottom:14px;border:2px solid var(--ink);}
+.hero h2{font-family:var(--display);font-size:34px;line-height:1.15;margin:0 0 12px;max-width:440px;text-shadow:3px 3px 0 var(--ink);}
+.hero p{font-size:14px;color:#f0ddf0;max-width:400px;line-height:1.7;margin:0 0 26px;font-weight:500;}
+.hero-actions{display:flex;gap:14px;}
+.btn{padding:13px 22px;border-radius:10px;font-weight:800;font-size:13.5px;display:inline-flex;align-items:center;gap:8px;border:3px solid var(--ink);transition:transform .15s ease, box-shadow .15s ease;}
+.btn-primary{background:var(--mango);color:var(--ink);box-shadow:4px 4px 0 var(--ink);}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+.btn-secondary{background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--ink);}
+.btn-secondary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+.hero-shelf{position:absolute;right:0;top:0;bottom:0;width:400px;}
+.hero-shelf svg{width:100%;height:100%;}
+
+/* section head */
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin:36px 0 16px;flex-wrap:wrap;gap:10px;}
+.section-head h3{font-family:var(--hand);font-weight:700;font-size:20px;margin:0;color:var(--ink);position:relative;padding-left:16px;}
+.section-head h3::before{content:"◆";position:absolute;left:0;color:var(--rickshaw-red);font-size:12px;top:5px;}
+.section-head a{font-size:12px;font-weight:800;color:#fff;background:var(--cobalt);padding:6px 12px;border-radius:8px;border:2px solid var(--ink);}
+
+/* collection overview */
+.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.stat-card{background:#fff;border-radius:14px;padding:16px 14px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .2s ease, box-shadow .2s ease;}
+.stat-card:hover{transform:translate(-3px,-3px) rotate(-1deg);box-shadow:8px 8px 0 var(--ink);}
+.stat-card .badge{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;border:2.5px solid var(--ink);}
+.stat-card .val{font-family:var(--hand);font-weight:700;font-size:20px;}
+.stat-card .lbl{font-size:10.5px;color:#6b5947;margin-top:2px;font-weight:600;}
+.stat-card.c1 .badge{background:var(--mango);}
+.stat-card.c2 .badge{background:var(--parrot);color:#fff;}
+.stat-card.c3 .badge{background:var(--hotpink);color:#fff;}
+.stat-card.c4 .badge{background:var(--clay);color:#fff;}
+.stat-card.c5 .badge{background:var(--cobalt);color:#fff;}
+
+/* filter bar */
+.filter-bar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:#fff;border:3px solid var(--ink);border-radius:16px;
+  padding:14px 18px;box-shadow:5px 5px 0 var(--ink);margin-top:6px;
+}
+.filter-search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:var(--cream);border:2px solid var(--ink);border-radius:10px;padding:9px 14px;font-size:12.5px;font-weight:600;}
+.chip{
+  font-size:12px;font-weight:700;padding:8px 14px;border-radius:999px;
+  border:2px solid var(--ink);background:#fff;color:var(--ink);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all .2s ease;
+}
+.chip:hover{background:var(--cream);}
+.chip.active{background:var(--ink);color:var(--mango);}
+.filter-sep{width:2px;height:24px;background:#e6d8b8;}
+.view-toggle{display:flex;border:2px solid var(--ink);border-radius:10px;overflow:hidden;}
+.view-toggle button{padding:8px 12px;background:#fff;color:var(--ink);font-size:13px;}
+.view-toggle button.active{background:var(--mango);}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.g-card{
+  background:#fff;border-radius:16px;overflow:hidden;position:relative;
+  border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.g-card:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 var(--ink);}
+.g-card:hover .quick-actions{transform:translateY(0);opacity:1;}
+.g-card:hover .g-frame::after{opacity:1;}
+.g-thumb{height:170px;position:relative;display:flex;align-items:center;justify-content:center;font-size:44px;color:#fff;border-bottom:3px solid var(--ink);overflow:hidden;}
+.g-card:nth-child(1) .g-thumb{background:linear-gradient(160deg, var(--hotpink), var(--plum));}
+.g-card:nth-child(2) .g-thumb{background:linear-gradient(160deg, var(--cobalt), #123363);}
+.g-card:nth-child(3) .g-thumb{background:linear-gradient(160deg, var(--parrot), #0a5c34);}
+.g-card:nth-child(4) .g-thumb{background:linear-gradient(160deg, var(--rickshaw-red), #8f1616);}
+.g-card:nth-child(5) .g-thumb{background:linear-gradient(160deg, var(--clay), #7c451c);}
+.g-card:nth-child(6) .g-thumb{background:linear-gradient(160deg, var(--mango), #b57e00);}
+.g-card:nth-child(7) .g-thumb{background:linear-gradient(160deg, var(--hotpink), #7c1043);}
+.g-card:nth-child(8) .g-thumb{background:linear-gradient(160deg, var(--cobalt), var(--plum));}
+
+.g-frame::after{
+  content:"";position:absolute;inset:6px;border:2px dashed rgba(255,255,255,0.55);
+  border-radius:8px;pointer-events:none;opacity:0;transition:opacity .3s ease;
+}
+.status-tag{
+  position:absolute;top:10px;left:10px;font-size:10px;font-weight:800;
+  padding:4px 10px;border-radius:999px;border:2px solid var(--ink);
+  background:#fff;color:var(--ink);
+}
+.status-available{background:#EAF3E3;color:#3C6E3F;}
+.status-low{background:#FCEAD3;color:#8A5A11;}
+.status-out{background:#F1E4E9;color:#7A3B54;}
+.status-hidden{background:#E4E4EC;color:#4B4B63;}
+.status-draft{background:#EFEAF6;color:#5C4A87;}
+.fav-tag{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;}
+
+.quick-actions{
+  position:absolute;bottom:170px;left:0;right:0;display:flex;justify-content:center;gap:6px;
+  transform:translateY(10px);opacity:0;transition:all .25s ease;padding-bottom:8px;
+}
+.quick-actions button{
+  width:30px;height:30px;border-radius:8px;background:#fff;border:2px solid var(--ink);
+  font-size:11px;display:flex;align-items:center;justify-content:center;
+}
+.quick-actions button:hover{background:var(--mango);}
+
+.g-body{padding:14px 15px 15px;}
+.g-cat{font-size:10px;font-weight:700;color:var(--clay);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
+.g-body h5{font-family:var(--hand);font-size:14.5px;margin:0 0 6px;}
+.g-price{font-weight:800;font-size:14px;color:var(--ink);margin-bottom:8px;}
+.g-metrics{display:flex;justify-content:space-between;font-size:10px;color:#8a7864;font-weight:700;margin-bottom:10px;border-top:1.5px dashed #eee0c8;padding-top:8px;}
+.g-metrics span i{margin-right:3px;}
+.g-actions{display:flex;gap:6px;}
+.g-actions button{flex:1;padding:7px 0;border-radius:8px;font-size:10.5px;font-weight:800;border:2px solid var(--ink);}
+.ga-edit{background:var(--mango);color:var(--ink);}
+.ga-feature{background:#fff;color:var(--ink);}
+.ga-feature:hover{background:var(--cream);}
+.ga-more{width:32px;flex:none;background:#fff;color:var(--ink);}
+
+/* floating add button */
+.fab{
+  position:fixed;bottom:32px;right:38px;
+  width:64px;height:64px;border-radius:50%;
+  background:var(--rickshaw-red);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:26px;
+  border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  transition:all .2s ease;
+}
+.fab:hover{transform:translate(-3px,-3px) rotate(8deg);box-shadow:8px 8px 0 var(--ink);background:var(--mango);color:var(--ink);}
+
+@media(max-width:1100px){
+  .shell{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .stat-row{grid-template-columns:repeat(2,1fr);}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .hero{padding:38px;}
+  .hero-shelf{display:none;}
+}
+@media(max-width:600px){
+  .gallery{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-logo">HaathKaKaam<span>Seller Workshop</span></div>
+    <ul class="nav-group">
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">🏠</span>Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#"><span class="ico">🪵</span>My Creations</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">📦</span>Orders</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">💬</span>Messages</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">🏆</span>Achievements</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">🎨</span>Customize Store</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">👤</span>Profile</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">⚙</span>Settings</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="ico">🚪</span>Logout</a></li>
+    </ul>
+    <div class="sidebar-foot">Made with ❤️ in Pakistan</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar-wrap">
+      <div class="topbar">
+        <div class="greeting">
+          <h1>My Creations 🪵</h1>
+          <p>Your gallery of handmade work.</p>
+        </div>
+        <div class="topbar-tools">
+          <div class="search-pill"><i class="fa-solid fa-magnifying-glass"></i> Search orders, products…</div>
+          <div class="icon-btn"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+          <div class="icon-btn"><i class="fa-regular fa-comment-dots"></i></div>
+          <div class="seller-chip">
+            <div class="avatar">H</div>
+            <div><div style="font-size:12px;font-weight:700;">Haleema's Workshop</div><span class="plate">LVL·04 ARTISAN</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--cream);"><div class="jhalar" id="jhalarTop"></div></div>
+    </div>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="hero-shelf">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#1A1006" stroke-width="3">
+            <rect x="40" y="40" width="320" height="8" fill="#FFB100"/>
+            <rect x="40" y="150" width="320" height="8" fill="#FFB100"/>
+            <rect x="40" y="260" width="320" height="8" fill="#FFB100"/>
+            <circle cx="90" cy="20" r="18" fill="#E8256E"/>
+            <rect x="150" y="0" width="30" height="40" rx="4" fill="#1B4B8F"/>
+            <path d="M230 10 q20 -12 40 0 l0 30 q-20 10 -40 0 Z" fill="#0F8B4D"/>
+            <ellipse cx="90" cy="130" rx="22" ry="16" fill="#FFB100"/>
+            <rect x="150" y="110" width="34" height="36" rx="6" fill="#D62828"/>
+            <circle cx="260" cy="128" r="17" fill="#B5652D"/>
+            <rect x="70" y="220" width="36" height="34" rx="4" fill="#1B4B8F"/>
+            <ellipse cx="200" cy="238" rx="24" ry="18" fill="#E8256E"/>
+            <circle cx="290" cy="236" r="18" fill="#0F8B4D"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-eyebrow">🪵 24 Creations Listed</div>
+      <h2>Your Handmade Collection</h2>
+      <p>Every piece tells a story. Keep creating, keep inspiring.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#">➕ Add New Creation</a>
+        <a class="btn btn-secondary" href="#">👀 View Public Store</a>
+      </div>
+    </section>
+
+    <!-- collection overview -->
+    <div class="section-head"><h3>Collection Overview</h3></div>
+    <div class="stat-row">
+      <div class="stat-card c1"><div class="badge">🖼️</div><div class="val">24</div><div class="lbl">Total Creations</div></div>
+      <div class="stat-card c2"><div class="badge">📦</div><div class="val">18</div><div class="lbl">In Stock</div></div>
+      <div class="stat-card c3"><div class="badge">🥇</div><div class="val">Jhumka Set</div><div class="lbl">Best Seller</div></div>
+      <div class="stat-card c4"><div class="badge">⚠️</div><div class="val">3</div><div class="lbl">Out of Stock</div></div>
+      <div class="stat-card c5"><div class="badge">📈</div><div class="val">Rs 61,200</div><div class="lbl">Monthly Sales</div></div>
+    </div>
+
+    <!-- filters -->
+    <div class="section-head"><h3>Browse & Filter</h3></div>
+    <div class="filter-bar">
+      <div class="filter-search"><i class="fa-solid fa-magnifying-glass"></i> Search your creations…</div>
+      <div class="filter-sep"></div>
+      <div class="chip active">All Categories</div>
+      <div class="chip">Embroidery</div>
+      <div class="chip">Pottery</div>
+      <div class="chip">Jewellery</div>
+      <div class="chip">Woven</div>
+      <div class="filter-sep"></div>
+      <div class="chip">Price <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i></div>
+      <div class="chip">Availability <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i></div>
+      <div class="chip">Sort: Newest <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i></div>
+      <div class="filter-sep"></div>
+      <div class="view-toggle">
+        <button class="active"><i class="fa-solid fa-grip"></i></button>
+        <button><i class="fa-solid fa-list"></i></button>
+      </div>
+    </div>
+
+    <!-- gallery -->
+    <div class="section-head" style="margin-top:26px;"><h3>Product Gallery</h3><a href="#">Bulk edit →</a></div>
+    <div class="gallery">
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🧵<span class="status-tag status-available">Available</span><span class="fav-tag">❤ 62</span></div>
+        <div class="quick-actions">
+          <button title="Edit"><i class="fa-solid fa-pen"></i></button>
+          <button title="Duplicate"><i class="fa-regular fa-copy"></i></button>
+          <button title="Feature"><i class="fa-solid fa-star"></i></button>
+          <button title="Archive"><i class="fa-solid fa-box-archive"></i></button>
+          <button title="Delete"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Embroidery</div>
+          <h5>Phulkari Cushion Cover</h5>
+          <div class="g-price">Rs 1,650</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>412</span><span><i class="fa-solid fa-star"></i>4.9</span><span><i class="fa-solid fa-bag-shopping"></i>38</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">☕<span class="status-tag status-low">Low Stock</span><span class="fav-tag">❤ 88</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Pottery</div>
+          <h5>Truck Art Ceramic Mug</h5>
+          <div class="g-price">Rs 950</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>701</span><span><i class="fa-solid fa-star"></i>4.7</span><span><i class="fa-solid fa-bag-shopping"></i>61</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🧺<span class="status-tag status-available">Available</span><span class="fav-tag">❤ 45</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Woven</div>
+          <h5>Handwoven Changair Basket</h5>
+          <div class="g-price">Rs 1,200</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>256</span><span><i class="fa-solid fa-star"></i>4.8</span><span><i class="fa-solid fa-bag-shopping"></i>27</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">💍<span class="status-tag status-out">Out of Stock</span><span class="fav-tag">❤ 130</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Jewellery</div>
+          <h5>Handmade Jhumka Set</h5>
+          <div class="g-price">Rs 2,100</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>980</span><span><i class="fa-solid fa-star"></i>5.0</span><span><i class="fa-solid fa-bag-shopping"></i>44</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🪵<span class="status-tag status-available">Available</span><span class="fav-tag">❤ 19</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Woodwork</div>
+          <h5>Carved Truck Art Tray</h5>
+          <div class="g-price">Rs 1,850</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>140</span><span><i class="fa-solid fa-star"></i>4.6</span><span><i class="fa-solid fa-bag-shopping"></i>9</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🎨<span class="status-tag status-draft">Draft</span><span class="fav-tag">❤ 0</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Painting</div>
+          <h5>Rickshaw Panel Wall Art</h5>
+          <div class="g-price">Rs 3,400</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>0</span><span><i class="fa-solid fa-star"></i>—</span><span><i class="fa-solid fa-bag-shopping"></i>0</span></div>
+          <div class="g-actions"><button class="ga-edit">Finish</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🧣<span class="status-tag status-available">Available</span><span class="fav-tag">❤ 71</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Embroidery</div>
+          <h5>Ajrak Print Shawl</h5>
+          <div class="g-price">Rs 2,300</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>533</span><span><i class="fa-solid fa-star"></i>4.9</span><span><i class="fa-solid fa-bag-shopping"></i>52</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+      <div class="g-card g-frame">
+        <div class="g-thumb">🏺<span class="status-tag status-hidden">Hidden</span><span class="fav-tag">❤ 27</span></div>
+        <div class="quick-actions">
+          <button><i class="fa-solid fa-pen"></i></button>
+          <button><i class="fa-regular fa-copy"></i></button>
+          <button><i class="fa-solid fa-star"></i></button>
+          <button><i class="fa-solid fa-box-archive"></i></button>
+          <button><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="g-body">
+          <div class="g-cat">Pottery</div>
+          <h5>Hand-painted Vase</h5>
+          <div class="g-price">Rs 1,400</div>
+          <div class="g-metrics"><span><i class="fa-solid fa-eye"></i>190</span><span><i class="fa-solid fa-star"></i>4.5</span><span><i class="fa-solid fa-bag-shopping"></i>16</span></div>
+          <div class="g-actions"><button class="ga-edit">Edit</button><button class="ga-feature">Feature</button><button class="ga-more">⋯</button></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<button class="fab" title="Add Creation"><i class="fa-solid fa-plus"></i></button>
+
+<script>
+  const jh = document.getElementById('jhalarTop');
+  for(let i=0;i<60;i++){ jh.innerHTML += '<span></span>'; }
+</script>
+
+</body>
+</html>

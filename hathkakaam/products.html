@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Sellers | HaathKaKaam</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body class="products-page">
+
+    <!-- ================= NAV ================= -->
+    <header class="site-nav">
+        <div class="site-nav-inner">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+            <a href="homepage.html" class="title-font nav-logo">HathKaKaam</a>
+
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass nav-icon"></i>
+                <i class="fa-regular fa-heart nav-icon"></i>
+                <div class="user-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <nav class="breadcrumb">
+            <a href="homepage.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Products &amp; Sellers</span>
+        </nav>
+    </header>
+
+    <!-- ================= PAGE HERO ================= -->
+    <section class="products-hero">
+        <span class="eyebrow">The Marketplace</span>
+        <h1>Products &amp; Sellers</h1>
+        <p>Every piece here was made by hand, by someone you can actually get to know. Browse by craft, or find a seller whose story speaks to you.</p>
+    </section>
+
+    <!-- ================= FILTER BAR ================= -->
+    <section class="filter-bar">
+        <div class="filter-chips" id="filterChips">
+            <button class="chip active" data-category="all">All</button>
+            <button class="chip" data-category="Jewelry">Jewelry</button>
+            <button class="chip" data-category="Crochet">Crochet</button>
+            <button class="chip" data-category="Floral Accessories">Floral</button>
+            <button class="chip" data-category="Home Decor">Home Décor</button>
+            <button class="chip" data-category="Embroidery">Embroidery</button>
+            <button class="chip" data-category="Pottery">Pottery</button>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-field">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search products or sellers">
+            </div>
+            <select id="sortSelect" aria-label="Sort products">
+                <option value="popular">Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- ================= PRODUCT GRID ================= -->
+    <section class="products-listing">
+        <div class="listing-meta">
+            <p id="resultsCount">Showing all products</p>
+        </div>
+
+        <div id="productsGrid" class="product-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>No products match your search. Try a different craft or keyword.</p>
+
+        <div class="pagination" id="pagination"></div>
+    </section>
+
+    <!-- ================= SELLERS ================= -->
+    <section class="sellers-section">
+        <div class="section-heading-inline">
+            <h2>Meet the Sellers</h2>
+            <p>The women behind the work — where they craft, and what they're known for.</p>
+        </div>
+        <div id="sellersGrid" class="sellers-grid"></div>
+    </section>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 HaathKaKaam. Handmade with heart, created for everyone.</p>
+    </footer>
+
+    <script src="js/products.js"></script>
+</body>
+</html>
